@@ -78,5 +78,21 @@
     "categoria": "Ojos",
     "precio": 4.50,
     "imagen": "https://images.unsplash.com/photo-1599733589046-10c0057ae8ef?auto=format&fit=crop&w=500&q=60"
+  },
+  {
+    "id": 11,
+    "nombre": "Iluminador Corporal Glow",
+    "marca": "Sheglam",
+    "categoria": "Rostro",
+    "precio": 9.99,
+    "imagen": "https://images.unsplash.com/photo-1526947425960-945c6e72858f?auto=format&fit=crop&w=500&q=60"
+  },
+  {
+    "id": 12,
+    "nombre": "Primer Matificante Pore Filler",
+    "marca": "Sheglam",
+    "categoria": "Rostro",
+    "precio": 7.99,
+    "imagen": "https://images.unsplash.com/photo-1571781926291-c477ebfd024b?auto=format&fit=crop&w=500&q=60"
   }
 ]

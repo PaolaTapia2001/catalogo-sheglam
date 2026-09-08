@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "nombre": "Base Liquida Complexion Pro",
+    "marca": "Sheglam",
+    "categoria": "Rostro",
+    "precio": 12.99,
+    "imagen": "https://images.unsplash.com/photo-1590156476805-6479f4c36132?auto=format&fit=crop&w=500&q=60"
+  },
+  {
+    "id": 2,
+    "nombre": "Rubor Líquido Color Bloom",
+    "marca": "Sheglam",
+    "categoria": "Rostro",
+    "precio": 6.99,
+    "imagen": "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=500&q=60"
+  },
+  {
+    "id": 3,
+    "nombre": "Polvo Translúcido Fix It",
+    "marca": "Sheglam",
+    "categoria": "Rostro",
+    "precio": 8.50,
+    "imagen": "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=500&q=60"
+  },
+  {
+    "id": 4,
+    "nombre": "Paleta de Sombras All-In-One",
+    "marca": "Sheglam",
+    "categoria": "Ojos",
+    "precio": 15.00,
+    "imagen": "https://images.unsplash.com/photo-1583241800695-e5f639fbdeee?auto=format&fit=crop&w=500&q=60"
+  },
+  {
+    "id": 5,
+    "nombre": "Delineador de Ojos Matte Eyeliner",
+    "marca": "Sheglam",
+    "categoria": "Ojos",
+    "precio": 4.99,
+    "imagen": "https://images.unsplash.com/photo-1631729371254-42c2892f0e6e?auto=format&fit=crop&w=500&q=60"
+  },
+  {
+    "id": 6,
+    "nombre": "Máscara de Pestañas Volume & Length",
+    "marca": "Sheglam",
+    "categoria": "Ojos",
+    "precio": 7.50,
+    "imagen": "https://images.unsplash.com/photo-1512207456886-742469326179?auto=format&fit=crop&w=500&q=60"
+  },
+  {
+    "id": 7,
+    "nombre": "Labial Mate The Matte Lip",
+    "marca": "Sheglam",
+    "categoria": "Labios",
+    "precio": 5.99,
+    "imagen": "https://images.unsplash.com/photo-1586495777744-4413f21062fa?auto=format&fit=crop&w=500&q=60"
+  },
+  {
+    "id": 8,
+    "nombre": "Gloss Plump & Shine",
+    "marca": "Sheglam",
+    "categoria": "Labios",
+    "precio": 6.50,
+    "imagen": "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=500&q=60"
+  },
+  {
+    "id": 9,
+    "nombre": "Iluminador en Polvo Starlight",
+    "marca": "Sheglam",
+    "categoria": "Rostro",
+    "precio": 7.99,
+    "imagen": "https://images.unsplash.com/photo-1596704017254-9b121068fb31?auto=format&fit=crop&w=500&q=60"
+  },
+  {
+    "id": 10,
+    "nombre": "Lápiz de Cejas Ultra Preciso",
+    "marca": "Sheglam",
+    "categoria": "Ojos",
+    "precio": 4.50,
+    "imagen": "https://images.unsplash.com/photo-1599733589046-10c0057ae8ef?auto=format&fit=crop&w=500&q=60"
+  }
+]

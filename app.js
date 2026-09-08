@@ -3,26 +3,37 @@ let productosGlobal = [];
 document.addEventListener("DOMContentLoaded", () => {
     cargarProductos();
 
-    document.getElementById("filtroMarca").addEventListener("change", filtrarYMostrar);
-    document.getElementById("filtroCategoria").addEventListener("change", filtrarYMostrar);
-    document.getElementById("filtroPrecio").addEventListener("input", (e) => {
-        document.getElementById("valorPrecio").textContent = e.target.value;
-        filtrarYMostrar();
-    });
+    const filtroMarca = document.getElementById("filtroMarca");
+    const filtroCategoria = document.getElementById("filtroCategoria");
+    const filtroPrecio = document.getElementById("filtroPrecio");
+
+    if (filtroMarca) filtroMarca.addEventListener("change", filtrarYMostrar);
+    if (filtroCategoria) filtroCategoria.addEventListener("change", filtrarYMostrar);
+    if (filtroPrecio) {
+        filtroPrecio.addEventListener("input", (e) => {
+            const valorPrecio = document.getElementById("valorPrecio");
+            if (valorPrecio) valorPrecio.textContent = e.target.value;
+            filtrarYMostrar();
+        });
+    }
 });
 
 async function cargarProductos() {
     try {
         const respuesta = await fetch("productos.json");
         if (!respuesta.ok) {
-            throw new Error("No se pudo cargar el archivo productos.json");
+            throw new Error(`Error HTTP: ${respuesta.status}`);
         }
         productosGlobal = await respuesta.json();
         
         inicializarFiltros(productosGlobal);
         mostrarProductos(productosGlobal);
     } catch (error) {
-        console.error("Error al cargar los productos:", error);
+        console.error("No se pudo cargar el archivo productos.json:", error);
+        const contenedor = document.getElementById("contenedorProductos");
+        if (contenedor) {
+            contenedor.innerHTML = `<div class="col-12 text-center py-4 text-danger"><p>Error al cargar los productos. Asegúrate de usar Live Server.</p></div>`;
+        }
     }
 }
 
@@ -33,27 +44,31 @@ function inicializarFiltros(productos) {
     const selectMarca = document.getElementById("filtroMarca");
     const selectCategoria = document.getElementById("filtroCategoria");
 
-    // Limpiar opciones previas excepto la primera
-    selectMarca.innerHTML = '<option value="">Todas las marcas</option>';
-    selectCategoria.innerHTML = '<option value="">Todas las categorías</option>';
+    if (selectMarca) {
+        selectMarca.innerHTML = '<option value="">Todas las marcas</option>';
+        marcasSet.forEach(marca => {
+            const option = document.createElement("option");
+            option.value = marca;
+            option.textContent = marca;
+            selectMarca.appendChild(option);
+        });
+    }
 
-    marcasSet.forEach(marca => {
-        const option = document.createElement("option");
-        option.value = marca;
-        option.textContent = marca;
-        selectMarca.appendChild(option);
-    });
-
-    categoriasSet.forEach(cat => {
-        const option = document.createElement("option");
-        option.value = cat;
-        option.textContent = cat;
-        selectCategoria.appendChild(option);
-    });
+    if (selectCategoria) {
+        selectCategoria.innerHTML = '<option value="">Todas las categorías</option>';
+        categoriasSet.forEach(cat => {
+            const option = document.createElement("option");
+            option.value = cat;
+            option.textContent = cat;
+            selectCategoria.appendChild(option);
+        });
+    }
 }
 
 function mostrarProductos(productos) {
     const contenedor = document.getElementById("contenedorProductos");
+    if (!contenedor) return;
+    
     contenedor.innerHTML = "";
 
     if (productos.length === 0) {
@@ -66,7 +81,7 @@ function mostrarProductos(productos) {
         col.className = "col";
         col.innerHTML = `
             <div class="card h-100 border-0 shadow-sm">
-                <img src="${producto.imagen}" class="card-img-top" alt="${producto.nombre}">
+                <img src="${producto.imagen}" class="card-img-top" alt="${producto.nombre}" style="height: 200px; object-fit: cover;">
                 <div class="card-body d-flex flex-column">
                     <span class="badge bg-secondary align-self-start mb-2">${producto.categoria}</span>
                     <h5 class="card-title fw-bold">${producto.nombre}</h5>
@@ -80,9 +95,9 @@ function mostrarProductos(productos) {
 }
 
 function filtrarYMostrar() {
-    const marcaSeleccionada = document.getElementById("filtroMarca").value;
-    const categoriaSeleccionada = document.getElementById("filtroCategoria").value;
-    const precioMaximo = parseFloat(document.getElementById("filtroPrecio").value);
+    const marcaSeleccionada = document.getElementById("filtroMarca")?.value || "";
+    const categoriaSeleccionada = document.getElementById("filtroCategoria")?.value || "";
+    const precioMaximo = parseFloat(document.getElementById("filtroPrecio")?.value) || 20;
 
     const filtrados = productosGlobal.filter(producto => {
         const coincideMarca = marcaSeleccionada === "" || producto.marca === marcaSeleccionada;
